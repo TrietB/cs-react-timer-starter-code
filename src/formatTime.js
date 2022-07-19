@@ -1,8 +1,9 @@
 export const formatTime = (time) => {
-  const getSeconds = "Your code here";
-  const minutes = "Your code here";
-  const getMinutes = "Your code here";
-  const getHours = "Your code here";
+  const minutes = time%(60*60);
+  const getSeconds = Math.ceil(minutes % 60) ;
+  const getMinutes = Math.floor(minutes/60);
+  const getHours = Math.floor(time / (60*60));
 
-  return `${getHours} : ${getMinutes} : ${getSeconds}`;
+
+  return `${getHours} : ${getMinutes<=9? `0${getMinutes}`: `${getMinutes}`} : ${getSeconds<=9?`0${getSeconds}`:`${getSeconds}`}`;
 };
